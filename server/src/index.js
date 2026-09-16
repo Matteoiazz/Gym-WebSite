@@ -21,7 +21,11 @@ const isProd = process.env.NODE_ENV === 'production'
 
 app.disable('x-powered-by')
 app.use(helmet({ crossOriginResourcePolicy: false }))
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173' }))
+const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean)
+app.use(cors({ origin: allowedOrigins }))
 app.use(express.json({ limit: '100kb' }))
 app.use(morgan(isProd ? 'combined' : 'dev'))
 
