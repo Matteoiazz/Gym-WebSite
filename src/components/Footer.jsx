@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Instagram, Phone, Check, ArrowRight } from 'lucide-react'
+import { Instagram, Phone } from 'lucide-react'
 
 const QUICK_LINKS = [
   { label: 'Discipline', type: 'scroll', href: '#discipline' },
@@ -11,7 +11,6 @@ const QUICK_LINKS = [
 ]
 
 export default function Footer() {
-  const [subscribed, setSubscribed] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -81,48 +80,31 @@ export default function Footer() {
           </nav>
 
           <div className="lg:col-span-4">
-            <h2 className="text-xs uppercase tracking-[0.14em] text-onyx-400">Novità e orari corsi</h2>
-            {subscribed ? (
-              <p className="mt-5 flex items-center gap-2 text-sm text-accent-400">
-                <Check className="h-4 w-4" /> Iscrizione registrata.
-              </p>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  setSubscribed(true)
-                }}
-                className="mt-5 flex gap-2"
-              >
-                <label htmlFor="newsletter" className="sr-only">
-                  La tua email
-                </label>
-                <input id="newsletter" type="email" required placeholder="La tua email" className="field" />
-                <button
-                  type="submit"
-                  aria-label="Iscriviti"
-                  className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-[10px] bg-accent-500 text-onyx-950 transition-colors duration-300 hover:bg-accent-400"
+            <h2 className="text-xs uppercase tracking-[0.14em] text-onyx-400">Contatti</h2>
+            <ul className="mt-5 space-y-3 text-sm">
+              <li>
+                <a href="tel:+393331960623" className="text-onyx-200 transition-colors hover:text-accent-400">
+                  +39 333 19 60 623
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/muscleefitness04/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-onyx-200 transition-colors hover:text-accent-400"
                 >
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
-            )}
+                  @muscleefitness04
+                </a>
+              </li>
+              <li className="text-onyx-400">Via F. Gullo, Spezzano Piccolo (CS)</li>
+            </ul>
           </div>
         </div>
 
         <div className="flex flex-col items-start justify-between gap-4 border-t border-white/10 py-8 text-xs text-onyx-400 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} A.S.D. Muscle &amp; Fitness</p>
-          <div className="flex gap-6">
-            <a href="#" onClick={(e) => e.preventDefault()} className="transition-colors hover:text-onyx-200">
-              Privacy
-            </a>
-            <a href="#" onClick={(e) => e.preventDefault()} className="transition-colors hover:text-onyx-200">
-              Termini
-            </a>
-            <a href="#" onClick={(e) => e.preventDefault()} className="transition-colors hover:text-onyx-200">
-              Cookie
-            </a>
-          </div>
+          <p>Aperti tutti i giorni, 06:00 – 24:00</p>
         </div>
       </div>
     </footer>

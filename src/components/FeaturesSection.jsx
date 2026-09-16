@@ -37,11 +37,11 @@ const FEATURES = [
 
 export default function FeaturesSection() {
   return (
-    <section className="bg-onyx-950 pb-24 lg:pb-32">
+    <section className="bg-onyx-950 py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <h2 className="display text-[10vw] text-onyx-50 sm:text-6xl lg:text-7xl">
+            <h2 className="display text-[9vw] text-onyx-50 sm:text-6xl lg:text-7xl">
               Perché
               <br />
               qui

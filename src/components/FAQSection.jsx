@@ -31,14 +31,14 @@ export default function FAQSection() {
   return (
     <section className="bg-onyx-950 pb-24 lg:pb-32">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <h2 className="display text-[10vw] text-onyx-50 sm:text-6xl lg:col-span-4 lg:text-7xl">
+        <div className="grid gap-12 xl:grid-cols-12 xl:gap-16">
+          <h2 className="display text-[9vw] text-onyx-50 sm:text-6xl xl:sticky xl:top-28 xl:col-span-5 xl:self-start">
             Domande
             <br />
             ricorrenti
           </h2>
 
-          <div className="lg:col-span-8">
+          <div className="xl:col-span-7">
             {FAQS.map((faq, i) => {
               const isOpen = open === i
               return (

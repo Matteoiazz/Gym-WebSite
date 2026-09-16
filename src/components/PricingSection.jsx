@@ -22,7 +22,7 @@ export default function PricingSection() {
     <section id="prezzi" className="bg-onyx-950 py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="display max-w-2xl text-[10vw] text-onyx-50 sm:text-6xl lg:text-7xl">
+          <h2 className="display max-w-2xl text-[9vw] text-onyx-50 sm:text-6xl lg:text-7xl">
             Un prezzo,
             <br />
             tutta la struttura

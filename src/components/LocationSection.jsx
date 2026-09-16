@@ -22,7 +22,7 @@ export default function LocationSection() {
     <section id="dove-siamo" className="border-t border-white/10 bg-onyx-900">
       <div className="grid lg:grid-cols-2">
         <div className="flex flex-col justify-center px-6 py-20 sm:px-10 lg:py-28 lg:pl-[max(2.5rem,calc((100vw-1400px)/2+2.5rem))]">
-          <h2 className="display text-[10vw] text-onyx-50 sm:text-6xl lg:text-7xl">
+          <h2 className="display text-[9vw] text-onyx-50 sm:text-6xl lg:text-7xl">
             Siamo
             <br />
             in Presila

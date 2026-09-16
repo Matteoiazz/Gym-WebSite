@@ -31,7 +31,7 @@ export default function EquipmentSection() {
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="-mt-24 relative z-10 lg:-mt-32">
-          <h2 className="display max-w-3xl text-[10vw] text-onyx-50 sm:text-6xl lg:text-7xl">
+          <h2 className="display max-w-3xl text-[9vw] text-onyx-50 sm:text-6xl lg:text-7xl">
             Ferro serio,
             <br />
             non arredamento
