@@ -6,8 +6,13 @@ const prisma = new PrismaClient()
 
 async function main() {
   const email = (process.env.ADMIN_EMAIL || 'admin@musclefitness.it').toLowerCase()
-  const password = process.env.ADMIN_PASSWORD || 'Admin123!'
+  const password = process.env.ADMIN_PASSWORD
   const name = process.env.ADMIN_NAME || 'Amministratore'
+
+  if (!password || password.length < 12 || password === 'imposta-una-password-lunga-e-casuale') {
+    console.error('ADMIN_PASSWORD mancante o debole: imposta nel .env una password casuale di almeno 12 caratteri.')
+    process.exit(1)
+  }
 
   const existing = await prisma.user.findUnique({ where: { email } })
   if (existing) {
@@ -27,10 +32,7 @@ async function main() {
     },
   })
 
-  console.log('Account admin creato:')
-  console.log(`  Email:    ${email}`)
-  console.log(`  Password: ${password}`)
-  console.log('Cambia la password in produzione (variabili ADMIN_EMAIL / ADMIN_PASSWORD nel .env).')
+  console.log(`Account admin creato: ${email} (password letta da ADMIN_PASSWORD nel .env).`)
 }
 
 main()
