@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-onyx-950 font-sans text-onyx-100 antialiased;
+  }
+
+  /* Browser surfaces belong to the design system, not to the browser. */
+  ::selection {
+    background: theme('colors.accent.500');
+    color: theme('colors.onyx.950');
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.accent.400');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme('colors.onyx.950');
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.onyx.700');
+    border: 3px solid theme('colors.onyx.950');
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.onyx.600');
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.onyx.700') theme('colors.onyx.950');
+  }
+
+  input,
+  textarea {
+    caret-color: theme('colors.accent.400');
+  }
+
+  a,
+  button {
+    text-underline-offset: 0.2em;
+  }
+
+  /* Numerals in data contexts line up. */
+  table,
+  time,
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: theme('colors.onyx.50');
+    -webkit-box-shadow: 0 0 0 1000px theme('colors.onyx.800') inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@layer components {
+  /* Signage voice: the display face set the way a facility sets its wayfinding. */
+  .display {
+    @apply font-display font-extrabold uppercase leading-[0.88] tracking-tightest;
+    font-stretch: 112%;
+  }
+
+  .display-sm {
+    @apply font-display font-bold uppercase leading-[0.95] tracking-tightest;
+    font-stretch: 108%;
+  }
+
+  .label {
+    @apply font-display text-xs font-semibold uppercase tracking-[0.14em];
+  }
+
+  .rule {
+    @apply border-t border-white/10;
+  }
+
+  .surface {
+    @apply rounded-[14px] bg-onyx-900;
+  }
+
+  .surface-line {
+    @apply rounded-[14px] border border-white/10 bg-onyx-900;
+  }
+
+  /* Photographic plates are graded to the ground so type stays legible over them. */
+  .plate {
+    @apply relative overflow-hidden bg-onyx-900;
+  }
+
+  .plate img {
+    @apply h-full w-full object-cover;
+  }
+
+  .plate::after {
+    content: '';
+    @apply pointer-events-none absolute inset-0;
+    background: linear-gradient(
+      to top,
+      rgba(8, 9, 10, 0.92) 0%,
+      rgba(8, 9, 10, 0.45) 45%,
+      rgba(8, 9, 10, 0.15) 100%
+    );
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-onyx-950 transition duration-300 ease-out hover:bg-accent-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-onyx-50 transition duration-300 ease-out hover:border-white/50 hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .field {
+    @apply w-full rounded-[10px] border border-white/10 bg-onyx-800 px-3.5 py-2.5 text-sm text-onyx-50 transition-colors duration-200 placeholder:text-onyx-400 focus:border-accent-500 focus:outline-none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
